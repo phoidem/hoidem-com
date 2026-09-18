@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Datenschutzerklärung — Songmirror</title>
+  <link rel="canonical" href="https://hoidem.com/datenschutz.html">
+  <style>
+    body { margin: 0; font: 18px/1.5 system-ui, sans-serif; color: #1a1a1a; background: #f6f4f0; }
+    main { max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    h1 { font-size: 1.75rem; font-weight: 650; letter-spacing: -0.02em; }
+    h2 { font-size: 1.15rem; margin-top: 2rem; }
+    p, li { color: #333; }
+    a { color: #0b57d0; }
+    footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <p><a href="/">← Songmirror</a></p>
+    <h1>Datenschutzerklärung</h1>
+    <p>Stand: 18. September 2026. Verantwortlicher: Patrick, <a href="mailto:patrick@hoidem.com">patrick@hoidem.com</a>.</p>
+
+    <h2>Zweck</h2>
+    <p>
+      Songmirror synchronisiert Playlist-Metadaten zwischen YouTube Music und Deezer
+      für denselben Haushalt. Die App wird nicht öffentlich angeboten.
+    </p>
+
+    <h2>Welche Google-Daten</h2>
+    <p>
+      Über die YouTube Data API v3 (OAuth, Gerätecode) liest Songmirror
+      Wiedergabelisten des angemeldeten Google-Kontos: Playlist-ID, Titel,
+      Interpreten und Video-IDs der Einträge. Es werden keine YouTube-Videos
+      heruntergeladen und kein Google-Passwort gespeichert.
+    </p>
+
+    <h2>Speicherung</h2>
+    <p>
+      OAuth-Tokens und der Abgleich der Titel liegen nur auf dem Raspberry Pi
+      im Haus (lokales Docker-Volume). Sie werden nicht an Dritte verkauft,
+      nicht für Werbung genutzt und nicht in eine öffentliche Cloud hochgeladen.
+    </p>
+
+    <h2>Weitergabe</h2>
+    <p>
+      Zum Finden des gleichen Titels sendet Songmirror Interpreten- und Titeltext
+      an die Deezer-API und schreibt die Treffer in eine Deezer-Playlist.
+      Google-Zugangsdaten gehen nicht an Deezer.
+    </p>
+
+    <h2>Speicherdauer und Widerruf</h2>
+    <p>
+      Daten bleiben, solange die Synchronisation aktiv ist. Google-Zugriff
+      jederzeit widerrufen:
+      <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>
+      (App „Songmirror“ entfernen). Danach werden lokale Tokens gelöscht, sobald
+      das Konto in Songmirror getrennt wird.
+    </p>
+
+    <h2>Kontakt</h2>
+    <p><a href="mailto:patrick@hoidem.com">patrick@hoidem.com</a></p>
+
+    <footer>
+      <a href="/">Startseite</a>
+    </footer>
+  </main>
+</body>
+</html>
