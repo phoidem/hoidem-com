@@ -1,41 +1,55 @@
 # hoidem.com — OAuth branding for Songmirror
 
-Dwie publiczne strony (Startseite + Datenschutz), żeby Google Auth Platform
-mógł **App veröffentlichen**. Bez tego OAuth zostaje w Test i token pada co 7 dni.
-
-Hosting: **GitHub Pages** (darmowy HTTPS). DNS dziś trzyma goneo-parking
-(`notavailable.goneo.de`), HTTPS na apex nie działa.
-
-## URLe po DNS
+Dwie publiczne strony, żeby Google Auth Platform mógł **App veröffentlichen**
+(bez tego OAuth zostaje w Test i token pada co 7 dni).
 
 - Startseite: `https://hoidem.com/`
 - Datenschutzerklärung: `https://hoidem.com/datenschutz.html`
+- Repo: https://github.com/phoidem/hoidem-com
+- Pages: GitHub Settings → Pages → Branch `main` / root (potem Enforce HTTPS)
 
-## DNS w goneo (zamiast parkingu)
+## Dlaczego goneo mówi „keine aktiven Pakete”
 
-Usuń A/CNAME parkingu na `@` i `www`. Ustaw:
+To **nie** znaczy, że domena wygasła.
 
-**A** `@` →
+| | |
+|--|--|
+| Pakiet goneo (web + E-Mail Plus) | wypowiedziany, koniec **30.07.2026** — panel Kundencenter jest martwy |
+| Rejestracja `hoidem.com` | do **19.02.2027** (Ascio) |
+| Nameservery dziś | nadal `ns1.goneo.de` / `ns2.goneo.de` (parking) |
 
-- `185.199.108.153`
-- `185.199.109.153`
-- `185.199.110.153`
-- `185.199.111.153`
+Panel goneo wymaga aktywnego pakietu. Po wypowiedzeniu logowanie jest celowo zablokowane. DNS nadal trzyma goneo, ale **Ty nie masz już GUI**, żeby zmienić A/CNAME.
 
-**AAAA** `@` →
+W kwietniu 2026 prosiłeś o NS Cloudflare (`jessica.ns.cloudflare.com`, `trey.ns.cloudflare.com`). W DNS tego **nie ma** — goneo nie przełączyło delegacji.
 
-- `2606:50c0:8000::153`
-- `2606:50c0:8001::153`
-- `2606:50c0:8002::153`
-- `2606:50c0:8003::153`
+## Co zrobić z DNS (goneo nie wejdzie)
 
-**CNAME** `www` → `phoidem.github.io`
+1. Wejdź na [Cloudflare](https://dash.cloudflare.com) (to konto z kwietnia, te dwa NS są unikalne).
+2. Dodaj domenę `hoidem.com`, jeśli jej tam nie ma. Cloudflare pokaże te same NS.
+3. Rekordy (szary cloud / DNS only, nie pomarańczowy proxy — GitHub Pages tego nie lubi):
 
-TTL krótki (300) na czas zmiany.
+- **A** `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+- **AAAA** `@` → `2606:50c0:8000::153` … `8003::153`
+- **CNAME** `www` → `phoidem.github.io`
 
-## Google po tym, jak HTTPS odpowiada 200
+4. Mail do **vertrag@goneo.de** (konto 107057), krótko:
 
-1. [Search Console](https://search.google.com/search-console) — właściwość **Domena** `hoidem.com`, DNS TXT z kreatora, w goneo dodać TXT, Verify. Konto: `phoidem@gmail.com` (to samo co projekt Cloud).
-2. Auth Platform → **Branding**: Startseite i Datenschutz jak wyżej. **Speichern**.
-3. **Zielgruppe** → **Autorisierte Domains** → `hoidem.com` → **App veröffentlichen**.
-4. SongMirror → YouTube Music → **Erneut verbinden** (stary token z Test i tak padnie po 7 dniach).
+```
+Paket E-Mail Plus / Webserver ist seit 30.07.2026 gekündigt, Kundencenter:
+„keine aktiven Pakete“. Domain hoidem.com läuft bis 19.02.2027.
+
+Bitte Nameserver umstellen auf:
+jessica.ns.cloudflare.com
+trey.ns.cloudflare.com
+
+Bitte Auth-Code (EPP) schicken, falls die NS-Änderung nicht mehr möglich ist.
+```
+
+Bez tego kroku GitHub Pages nie zobaczy `hoidem.com`.
+
+## Google, gdy `https://hoidem.com/` już otwiera te strony
+
+1. [Search Console](https://search.google.com/search-console) — domena `hoidem.com`, TXT w **Cloudflare**, konto `phoidem@gmail.com`.
+2. Cloud → Branding: dwa URL-e powyżej → Speichern.
+3. Zielgruppe → Autorisierte Domains → `hoidem.com` → App veröffentlichen.
+4. SongMirror → YouTube Music → **Erneut verbinden**.
