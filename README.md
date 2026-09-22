@@ -3,8 +3,9 @@
 Dwie publiczne strony, żeby Google Auth Platform mógł **App veröffentlichen**
 (bez tego OAuth zostaje w Test i token pada co 7 dni).
 
-- Startseite: `https://hoidem.com/`
-- Datenschutzerklärung: `https://hoidem.com/datenschutz.html`
+- Pusta strona główna: `https://hoidem.com/` (bez linków)
+- OAuth Startseite: `https://hoidem.com/songmirror/`
+- OAuth Datenschutz: `https://hoidem.com/songmirror/datenschutz.html`
 - Repo: https://github.com/phoidem/hoidem-com
 - Pages: GitHub Settings → Pages → Branch `main` / root (potem Enforce HTTPS)
 
