@@ -3,44 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Songmirror — private Playlist-Synchronisation</title>
-  <meta name="description" content="Private Haushalts-App: synchronisiert eine YouTube-Music-Playlist zu Deezer. Kein öffentlicher Dienst.">
+  <title>Songmirror</title>
+  <meta name="description" content="Private Anwendung: liest eigene YouTube-Music-Playlists und spiegelt Titelmetadaten nach Deezer.">
   <link rel="canonical" href="https://hoidem.com/">
   <style>
-    :root { color-scheme: light; }
     body { margin: 0; font: 18px/1.5 system-ui, sans-serif; color: #1a1a1a; background: #f6f4f0; }
-    main { max-width: 40rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+    main { max-width: 36rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
     h1 { font-size: 1.75rem; font-weight: 650; letter-spacing: -0.02em; }
-    p, li { color: #333; }
+    p { color: #333; }
     a { color: #0b57d0; }
-    .meta { color: #666; font-size: 0.95rem; }
-    footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #ddd; font-size: 0.95rem; }
   </style>
 </head>
 <body>
   <main>
-    <p class="meta">hoidem.com · privater Haushalt</p>
     <h1>Songmirror</h1>
     <p>
-      Songmirror ist eine <strong>private Anwendung für einen Haushalt</strong>.
-      Sie liest eine YouTube-Music-Playlist (Familie) und hält eine Deezer-Playlist
-      auf demselben Stand — nur Metadaten (Titel, Interpret), keine Audiodateien.
+      Private Anwendung des Domaininhabers. Sie liest eigene YouTube-Music-Playlists
+      über die offizielle API und überträgt nur Titelmetadaten (Titel, Interpret)
+      in eine Deezer-Playlist. Es werden keine Audiodateien heruntergeladen.
+      Die Anwendung ist kein öffentlicher Dienst.
     </p>
-    <p>
-      Die Software läuft auf einem Raspberry Pi im Heimnetz.
-      Es gibt kein öffentliches Benutzerkonto, keine Werbung und keinen Shop.
-      Google-OAuth dient ausschließlich dazu, die eigene YouTube-Music-Bibliothek
-      zu lesen.
-    </p>
-    <ul>
-      <li>Quelle: YouTube Music (offizielle Data API)</li>
-      <li>Ziel: Deezer-Familienabo, eine geteilte Playlist</li>
-      <li>Betrieb: Self-hosted, nicht als Cloud-Dienst angeboten</li>
-    </ul>
     <p><a href="/datenschutz.html">Datenschutzerklärung</a></p>
-    <footer>
-      Kontakt: <a href="mailto:patrick@hoidem.com">patrick@hoidem.com</a>
-    </footer>
   </main>
 </body>
 </html>
